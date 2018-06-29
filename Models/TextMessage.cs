@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 
 namespace SfmcOdataDemo.Models
 {
-    public class Email
+    public class TextMessage
     {
-        public Email()
+        public TextMessage()
         {
         }
     
@@ -20,6 +19,6 @@ namespace SfmcOdataDemo.Models
         [ForeignKey("MID")]
         public BusinessUnit BusinessUnit { get; set; }
 
-        public virtual ICollection<Content> Contents { get; set; }
+        public string TextBody { get; set; }
     }
 }

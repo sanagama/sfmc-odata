@@ -10,8 +10,7 @@ namespace SfmcOdataDemo.Models
     {
         public Account()
         {
-            Contacts = new Collection<Contact>();
-            Emails = new Collection<Email>();
+            BusinessUnits = new Collection<BusinessUnit>();
         }
     
         [Key]
@@ -20,8 +19,6 @@ namespace SfmcOdataDemo.Models
         [Required]
         public string Name { get; set; }
     
-        public virtual ICollection<Email> Emails { get; set; }
-
-        public virtual ICollection<Contact> Contacts { get; set; }
+        public virtual ICollection<BusinessUnit> BusinessUnits { get; set; }
     }
 }

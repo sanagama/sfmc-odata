@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
 
 namespace SfmcOdataDemo.Models
 {
-    public class Email
+    public class PushNotification
     {
-        public Email()
+        public PushNotification()
         {
         }
     
@@ -16,10 +15,9 @@ namespace SfmcOdataDemo.Models
         public int MessageKey { get; set; }
     
         public int MID { get; set; }
-        
+
         [ForeignKey("MID")]
         public BusinessUnit BusinessUnit { get; set; }
-
-        public virtual ICollection<Content> Contents { get; set; }
+        public string TextBody { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNet.OData.Builder;
 
 namespace SfmcOdataDemo.Models
@@ -11,12 +12,23 @@ namespace SfmcOdataDemo.Models
         }
     
         [Key]
-        public int ContactId { get; set; }
+        public int ContactKey { get; set; }
     
         [Required]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
-        public int AccountId { get; set; }
-        public Account Account { get; set; }
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string EmailAddress { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        public int MID { get; set; }
+        
+        [ForeignKey("MID")]
+        public BusinessUnit BusinessUnit { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OData.UriParser;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using SfmcOdataDemo.Models;
@@ -32,7 +33,7 @@ namespace SfmcOdataDemo
         {
             services.AddMvc();
 
-            // Use a local Sqlite DB for this demo
+            // Create and use a local Sqlite DB for this demo
             services.AddDbContext<SfmcContext>(options =>
             {
                 options.UseSqlite("Data Source=./Data/SfmcDemo.db");
@@ -61,7 +62,7 @@ namespace SfmcOdataDemo
             app.UseStaticFiles();
 
             // Map OData routes to the EDM models discovered by convention.
-            app.UseMvc(routeBuilder =>
+            app.UseMvc( routeBuilder =>
             {
                 routeBuilder.MapODataServiceRoute("ODataRoutes", "odata", modelBuilder.GetEdmModel(app.ApplicationServices));
             });

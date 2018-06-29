@@ -11,9 +11,15 @@ namespace SfmcOdataDemo
 
         public DbSet<Account> Accounts { get; set; }
 
+        public DbSet<BusinessUnit> BusinessUnits { get; set; }
+
         public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<Email> Emails { get; set; }
+
+        public DbSet<TextMessage> TextMessages { get; set; }
+
+        public DbSet<PushNotification> PushNotifications { get; set; }
 
         public SfmcContext(ILogger<SfmcContext> logger) : base()
         {
@@ -23,7 +29,7 @@ namespace SfmcOdataDemo
         {
             _logger = logger;
         }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Nothing to do currently
