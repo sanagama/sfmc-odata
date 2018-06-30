@@ -1,8 +1,12 @@
 
-using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.OData.Builder;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using SfmcOdataDemo.Models;
 
 namespace SfmcOdataDemo.Models
 {
@@ -12,8 +16,6 @@ namespace SfmcOdataDemo.Models
         {
             Contacts = new Collection<Contact>();
             Emails = new Collection<Email>();
-            TextMessages = new Collection<TextMessage>();
-            PushNotifications = new Collection<PushNotification>();
         }
     
         [Key]
@@ -23,13 +25,11 @@ namespace SfmcOdataDemo.Models
         public string Name { get; set; }
     
         public int AccountId { get; set; }
+
+        [ForeignKey("AccountId")]
         public Account Account { get; set; }
 
         public virtual ICollection<Email> Emails { get; set; }
-
-        public virtual ICollection<TextMessage> TextMessages { get; set; }
-
-        public virtual ICollection<PushNotification> PushNotifications { get; set; }
 
         public virtual ICollection<Contact> Contacts { get; set; }
     }

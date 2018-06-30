@@ -10,6 +10,7 @@ namespace SfmcOdataDemo.Models
         {
             var builder = new ODataConventionModelBuilder(serviceProvider);
             //builder.EntitySet<Account>("Accounts");
+            //builder.EntitySet<BusinessUnit>("BusinessUnits");
             builder.EntitySet<Contact>("Contacts");
             builder.EntitySet<Email>("Emails");
             builder.EntitySet<Content>("Contents");
@@ -36,6 +37,7 @@ namespace SfmcOdataDemo.Models
                             .Expand(); 
 */
 
+            builder.EnableLowerCamelCase();
             return builder.GetEdmModel();
         }
     }

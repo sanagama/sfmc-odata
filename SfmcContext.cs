@@ -17,10 +17,6 @@ namespace SfmcOdataDemo
 
         public DbSet<Email> Emails { get; set; }
 
-        public DbSet<TextMessage> TextMessages { get; set; }
-
-        public DbSet<PushNotification> PushNotifications { get; set; }
-
         public SfmcContext(ILogger<SfmcContext> logger) : base()
         {
             _logger = logger;
